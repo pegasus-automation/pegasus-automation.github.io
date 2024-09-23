@@ -1,23 +1,71 @@
 ---
-import 'swiper/css';
+// const images = [
+//   'https://splidejs.com/images/slides/general/01.jpg',
+//   'https://splidejs.com/images/slides/general/02.jpg',
+//   'https://splidejs.com/images/slides/general/03.jpg',
+//   'https://splidejs.com/images/slides/general/04.jpg',
+// ];
 
-const { imageList } = Astro.props;
+const { images } = Astro.props || [];
 ---
 
-<div class="swiper">
-  <div class="swiper-wrapper">
+<div class="w-full max-w-2xl mx-auto">
+  <!-- Large Image Display -->
+  <div id="largeImageContainer" class="w-full mb-4">
+    <img
+      id="largeImage"
+      src={images[0]}
+      alt="Product Image"
+      class="w-full h-96 object-cover rounded-lg shadow-md cursor-zoom-in"
+    />
+  </div>
+
+  <!-- Thumbnails Section -->
+  <div id="thumbnails" class="flex justify-center space-x-4">
     {
-      Array.isArray(imageList) &&
-        imageList.map((imageHref) => (
-          <div class="swiper-slide">
-            <img src={imageHref} />
-          </div>
-        ))
+      images.map((image, index) => (
+        <img
+          src={image}
+          alt={`Thumbnail ${index + 1}`}
+          class="thumbnail w-24 h-24 object-cover rounded-lg cursor-pointer border-2 border-transparent"
+          data-image={image}
+        />
+      ))
     }
   </div>
 </div>
 
 <script>
-  import Swiper from 'swiper';
-  const swiper = new Swiper('.swiper', {});
+  document.addEventListener('DOMContentLoaded', () => {
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const largeImage = document.getElementById('largeImage');
+    largeImage?.addEventListener('click', function () {
+      window.open(largeImage.src);
+    });
+
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener('click', function () {
+        // Update the large image source
+        largeImage.src = this.getAttribute('data-image');
+
+        // Remove border from all thumbnails
+        thumbnails.forEach((thumb) => {
+          thumb.classList.remove('border-blue-500');
+          thumb.classList.remove('opacity-100');
+        });
+        thumbnails.forEach((thumb) => {
+          thumb.classList.add('border-transparent');
+          thumb.classList.add('opacity-70');
+        });
+
+        // Add active border to the clicked thumbnail
+        this.classList.remove('border-transparent');
+        this.classList.remove('opacity-70');
+        this.classList.add('border-blue-500');
+        this.classList.add('opacity-100');
+      });
+    });
+
+    thumbnails[0].click();
+  });
 </script>
