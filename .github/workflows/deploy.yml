@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-        with:
-          node-version: 16  # Use your desired Node.js version
       - run: npm install  # or yarn install, depending on your project
       - run: npm run build  # or the command that builds your static files
       - name: Deploy
