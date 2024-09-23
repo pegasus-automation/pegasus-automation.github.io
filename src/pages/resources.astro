@@ -1,0 +1,60 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Resources',
+};
+
+const resourcesData = [
+  { name: 'MYOSA.apk', link: '/public/resources/MYOSA.apk' },
+  { name: 'Myosa Pinout.jpg', link: '/public/resources/Myosa Pinout.jpg' },
+  { name: 'Characters in mobile app.pdf', link: '/public/resources/Characters in mobile app.pdf' },
+  { name: 'MYOSA Detailed Guide-1.pdf', link: '/public/resources/MYOSA Detailed Guide-1.pdf' },
+  { name: 'MYOSA Documentation.pdf', link: '/public/resources/MYOSA Documentation.pdf' },
+  {
+    name: 'Sensor Data Information.xlsx - Sheet1.pdf',
+    link: '/public/resources/Sensor Data Information.xlsx - Sheet1.pdf',
+  },
+  { name: 'Sensors Table.pdf', link: '/public/resources/Sensors Table.pdf' },
+  {
+    name: 'SPECIFICATIONS OF MYOSA v2.0(Motherboard).docx.pdf',
+    link: '/public/resources/SPECIFICATIONS OF MYOSA v2.0(Motherboard).docx.pdf',
+  },
+  { name: 'Firmware.zip', link: '/public/resources/Firmware.zip' },
+  { name: 'libraries.zip', link: '/public/resources/libraries.zip' },
+  { name: 'Myosa App Source.zip', link: '/public/resources/Myosa App Source.zip' },
+  { name: 'UserDefinedLibraries.zip', link: '/public/resources/UserDefinedLibraries.zip' },
+];
+---
+
+<Layout metadata={metadata}>
+  <h2 class="text-3xl font-bold text-center mt-10">Resources</h2>
+  <div class="max-w-2xl py-16 mx-auto">
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          resourcesData.map((resource, index) => {
+            return (
+              <tr class="border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4 ">{index + 1}</td>
+                <td class="px-6 py-4 ">{resource.name}</td>
+                <td class="px-6 py-4 ">
+                  <a class="link text-primary" href={resource.link} download>
+                    Download
+                  </a>
+                </td>
+              </tr>
+            );
+          })
+        }
+      </tbody>
+    </table>
+  </div>
+</Layout>

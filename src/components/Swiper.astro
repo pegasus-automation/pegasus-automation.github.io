@@ -1,0 +1,23 @@
+---
+import 'swiper/css';
+
+const { imageList } = Astro.props;
+---
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    {
+      Array.isArray(imageList) &&
+        imageList.map((imageHref) => (
+          <div class="swiper-slide">
+            <img src={imageHref} />
+          </div>
+        ))
+    }
+  </div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  const swiper = new Swiper('.swiper', {});
+</script>
