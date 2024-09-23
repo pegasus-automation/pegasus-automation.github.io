@@ -12,10 +12,10 @@ export const headerData = {
             links: [
                 { text: 'MYOSA Motherboard', href: '#' },
                 { text: 'Accelerometer + Gyroscope Sensor', href: '/products/accelerometer-and-gyroscope-sensor' },
-                { text: 'Gesture + RGB Sensor', href: '#' },
-                { text: 'Barometric Pressure Sensor', href: '#' },
+                { text: 'Gesture + Proximity + RGB Sensor', href: '/products/gesture-proximity-light-and-color-sensor' },
+                { text: 'Barometric Pressure Sensor', href: '/products/barometric-pressure-sensor' },
                 { text: 'Temperature + Humidity Sensor', href: '#' },
-                { text: 'OLED Display', href: '#' },
+                { text: 'OLED Display', href: '/products/oled-display' },
                 { text: 'Air Quality Sensor', href: '#' },
                 { text: 'Actuator', href: '#' },
             ],

@@ -6,49 +6,44 @@ import Headline from '~/components/ui/Headline.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'MPU6050 6-Axis Accelerometer and Gyroscope Sensor',
-  subtitle: 'High-Precision Motion Tracking and Inertia Measurement',
+  title: 'BMP180 Barometric Pressure Sensor',
+  subtitle: 'High-Accuracy Pressure and Altitude Measurement',
 };
 
-const images = ['/images/MPU6050-1.jpg', '/images/MPU6050-2.jpg', '/images/MPU6050-3.jpg'];
+const images = ['/images/BMP180-1.jpg', '/images/BMP180-2.jpg'];
 
-const introduction = `The MPU6050 combines a 3-axis accelerometer and 3-axis gyroscope, offering six degrees of freedom for motion sensing. Ideal for drones, robotics, and wearables, it features an integrated Digital Motion Processor (DMP) to handle complex calculations efficiently.`;
+const introduction = `The BMP180 provides accurate atmospheric pressure data and altitude measurements, making it ideal for weather stations, altimeters, and GPS navigation enhancement.`;
 
-const featureList = [
-  '6 DoF: Accelerometer + Gyroscope',
-  'Chip built-in 16bit AD converter, 16-bit data output',
-  'Built-in DMP for motion tracking',
-  'Range: ±2g to ±16g (accelerometer), ±250°/sec to ±2000°/sec (gyroscope)',
-  'Digital-output temperature sensor',
-];
+const featureList = ['High-precision pressure measurement', 'Altitude calculation', 'Low power consumption'];
 
 const specifications = [
-  { label: 'Supply Voltage', value: '3V - 5V' },
+  { label: 'Supply Voltage', value: '1.8V - 3.6V' },
   { label: 'Communication', value: 'I2C' },
+  { label: 'Pressure Range', value: ' 300 to 1100 hPa' },
   { label: 'Temperature Range', value: ' -40°C to +85°C' },
 ];
 
 const references = [
   {
-    label: 'MPU6050 Datasheet',
+    label: 'BMP180 Datasheet',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
   {
-    label: 'Getting Started Guide',
+    label: 'Altimeter Calculation Guide',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
   {
-    label: 'MPU6050 Library',
+    label: 'Pressure Sensor Library',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
 ];
-const applicationList = ['Drones', 'Wearables', 'Motion capture'];
+const applicationList = ['Altimeters', 'Weather stations', 'GPS navigation'];
 ---
 
 <Layout metadata={metadata}>
   <div class="py-8 max-w-5xl mx-auto px-8">
     <Headline title={metadata.title} subtitle={metadata.subtitle} />
-    <Swiper images={images} name="Accelerometer" />
+    <Swiper images={images} name="barometer" />
 
     <div class="py-10 gap-20">
       <p class="">{introduction}</p>

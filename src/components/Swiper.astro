@@ -6,10 +6,10 @@
 //   'https://splidejs.com/images/slides/general/04.jpg',
 // ];
 
-const { images } = Astro.props || [];
+const { images, name } = Astro.props || [];
 ---
 
-<div class="w-full max-w-2xl mx-auto">
+<div class="w-full max-w-2xl mx-auto" transition:name={name}>
   <!-- Large Image Display -->
   <div id="largeImageContainer" class="w-full mb-4">
     <img
@@ -36,7 +36,7 @@ const { images } = Astro.props || [];
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initializeImageSlider() {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const largeImage = document.getElementById('largeImage');
     largeImage?.addEventListener('click', function () {
@@ -67,5 +67,8 @@ const { images } = Astro.props || [];
     });
 
     thumbnails[0].click();
-  });
+  }
+
+  // Add this listener to handle re-initialization after navigation changes
+  document.addEventListener('astro:page-load', initializeImageSlider);
 </script>

@@ -6,49 +6,43 @@ import Headline from '~/components/ui/Headline.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'MPU6050 6-Axis Accelerometer and Gyroscope Sensor',
-  subtitle: 'High-Precision Motion Tracking and Inertia Measurement',
+  title: 'APDS9960 Gesture, Proximity, Light, and Color Sensor',
+  subtitle: 'All-in-One Optical Sensor',
 };
 
-const images = ['/images/MPU6050-1.jpg', '/images/MPU6050-2.jpg', '/images/MPU6050-3.jpg'];
+const images = ['/images/APDS9960-1.jpg', '/images/APDS9960-2.jpg', '/images/APDS9960-3.jpg'];
 
-const introduction = `The MPU6050 combines a 3-axis accelerometer and 3-axis gyroscope, offering six degrees of freedom for motion sensing. Ideal for drones, robotics, and wearables, it features an integrated Digital Motion Processor (DMP) to handle complex calculations efficiently.`;
+const introduction = `The APDS9960 is a versatile optical sensor that can detect gestures, measure proximity, ambient light, and RGB colors. It’s commonly used in gesture-based control systems and devices requiring environmental light sensing.`;
 
-const featureList = [
-  '6 DoF: Accelerometer + Gyroscope',
-  'Chip built-in 16bit AD converter, 16-bit data output',
-  'Built-in DMP for motion tracking',
-  'Range: ±2g to ±16g (accelerometer), ±250°/sec to ±2000°/sec (gyroscope)',
-  'Digital-output temperature sensor',
-];
+const featureList = ['Gesture recognition', 'Proximity detection', 'Ambient light and color sensing (RGB)'];
 
 const specifications = [
-  { label: 'Supply Voltage', value: '3V - 5V' },
+  { label: 'Supply Voltage', value: '2.4V - 3.6V' },
   { label: 'Communication', value: 'I2C' },
-  { label: 'Temperature Range', value: ' -40°C to +85°C' },
+  { label: 'Detection Range', value: ' 0 - 100mm (proximity)' },
 ];
 
 const references = [
   {
-    label: 'MPU6050 Datasheet',
+    label: 'APDS9960 Datasheet',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
   {
-    label: 'Getting Started Guide',
+    label: 'Proximity Sensor Guide',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
   {
-    label: 'MPU6050 Library',
+    label: 'Gesture Control Library',
     link: 'https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf',
   },
 ];
-const applicationList = ['Drones', 'Wearables', 'Motion capture'];
+const applicationList = ['Gesture-based control', 'Ambient light detection', 'Color detection in displays    '];
 ---
 
 <Layout metadata={metadata}>
   <div class="py-8 max-w-5xl mx-auto px-8">
     <Headline title={metadata.title} subtitle={metadata.subtitle} />
-    <Swiper images={images} name="Accelerometer" />
+    <Swiper images={images} />
 
     <div class="py-10 gap-20">
       <p class="">{introduction}</p>
