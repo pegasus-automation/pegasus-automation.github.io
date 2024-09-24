@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Resources',
+  title: 'Downloads',
 };
 
 const resourcesData = [
@@ -28,7 +28,7 @@ const resourcesData = [
 ---
 
 <Layout metadata={metadata}>
-  <h2 class="text-3xl font-bold text-center mt-10">Resources</h2>
+  <h2 class="text-3xl font-bold text-center mt-10">{metadata.title}</h2>
   <div class="max-w-2xl py-16 mx-auto">
     <table class="table-auto">
       <thead>
