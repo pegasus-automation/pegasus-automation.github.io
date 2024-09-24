@@ -3,6 +3,7 @@ import List from '~/components/List.astro';
 import Swiper from '~/components/Swiper.astro';
 import Table from '~/components/Table.astro';
 import Headline from '~/components/ui/Headline.astro';
+import Breadcrumbs from '~/components/Breadcrumbs.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
@@ -45,9 +46,23 @@ const applicationList = ['Embedded display systems', 'Wearable devices', 'Consum
 ---
 
 <Layout metadata={metadata}>
-  <div class="py-8 max-w-5xl mx-auto px-8">
-    <Headline title={metadata.title} subtitle={metadata.subtitle} />
-    <Swiper images={images} />
+  <div class="py-8 max-w-5xl mx-auto px-8 flex flex-col gap-10">
+    <Breadcrumbs
+      labelLinkArray={[
+        { label: 'Home', link: '/' },
+        { label: 'Products', link: '#' },
+        { label: metadata.title, link: '#' },
+      ]}
+    />
+
+    <div class="flex flex-col-reverse md:flex-row gap-10">
+      <Swiper images={images} />
+      <div class="max-w-sm gap-3 flex flex-col">
+        <h2 class="text-3xl font-bold">{metadata.title}</h2>
+        <h2 class="text-xl">{metadata.subtitle}</h2>
+        <p class="">{introduction}</p>
+      </div>
+    </div>
 
     <div class="py-10 gap-20">
       <p class="">{introduction}</p>

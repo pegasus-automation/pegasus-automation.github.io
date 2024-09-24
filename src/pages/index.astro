@@ -4,7 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Hero from '~/components/widgets/Hero2.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -30,9 +30,9 @@ const metadata = {
       { text: 'Learn more', href: '#faq' },
     ]}
     image={{
-      src: '~/assets/images/Banner mobile.jpeg',
+      src: '~/assets/images/banner op.png',
       alt: 'MYOSA Hero Image',
-      class: 'rounded-3xl shadow-2xl object-center mx-auto',
+      class: 'rounded-xl shadow-2xl object-center  md:mx-auto',
     }}
   >
     <Fragment slot="title"> Make Your Own Sensor Applications </Fragment>
