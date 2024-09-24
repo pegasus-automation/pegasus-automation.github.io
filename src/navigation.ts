@@ -32,8 +32,8 @@ export const headerData = {
       href: getPermalink("/#faq")
     },
     {
-      text: 'Downloads',
-      href: getPermalink("/downloads")
+      text: 'Docs',
+      href: getPermalink("/docs")
     },
     {
       text: 'Blogs',
@@ -62,6 +62,7 @@ export const footerData = {
     {
       title: 'Support',
       links: [
+        { text: 'Docs', href: '/docs' },
         { text: 'Downloads', href: '/downloads' },
         { text: 'Blogs', href: '/blog' },
         { text: 'Discord Community', href: '#' },

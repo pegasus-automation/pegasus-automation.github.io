@@ -1,0 +1,95 @@
+---
+import { Icon } from 'astro-icon/components';
+import PageLayout from './PageLayout.astro';
+const { title } = Astro.props;
+const metadata = {
+  title: title || 'MYOSA - Learning Kit',
+};
+---
+
+<PageLayout metadata={metadata}>
+  <div class="flex flex-row gap-5 items-center px-5 lg:hidden">
+    <label for="my-drawer-2" class="btn rounded-md drawer-button">
+      <Icon name={'tabler:menu-2'} class="text-black-200" color="black" />
+    </label>
+    <h1 class="font-bold text-2xl">Documentation</h1>
+  </div>
+
+  <div class="drawer lg:drawer-open">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col items-center justify-center">
+      <!-- Page content here -->
+      <slot />
+    </div>
+    <div class="drawer-side z-50">
+      <ul class="menu bg-slate-100 text-base-content p-4 w-80">
+        <div class="flex flex-row justify-between">
+          <h1 class="font-bold text-2xl hidden lg:flex">Documentation</h1>
+          <label
+            for="my-drawer-2"
+            aria-label="close sidebar"
+            class="btn rounded-md drawer-overlay cursor-pointer lg:hidden"><Icon name={'tabler:x'} /></label
+          >
+        </div>
+        <ul class="menu bg-slate-100 rounded-box">
+          <li>
+            <details open>
+              <summary>Getting Started</summary>
+              <ul>
+                <li>
+                  <details open>
+                    <summary>What You Need</summary>
+                    <ul>
+                      <li>
+                        <details open>
+                          <summary>Software</summary>
+                          <ul>
+                            <li><a>How to add library to Arduino IDE</a></li>
+                            <li><a>How to add esp32 board manager to Arduino IDE</a></li>
+                            <li><a>BLE App installation </a></li>
+                          </ul>
+                        </details>
+                      </li>
+                      <li>
+                        <details open>
+                          <summary>Hardware</summary>
+                          <ul>
+                            <li><a>How to connect boards (JST and stack method) </a></li>
+                          </ul>
+                        </details>
+                      </li>
+                    </ul>
+                  </details>
+                </li>
+              </ul>
+            </details>
+          </li>
+
+          <li>
+            <details open>
+              <summary>Uploading individual sensors code </summary>
+              <ul>
+                <li><a>MPU6050</a></li>
+                <li><a>APDS9960</a></li>
+                <li><a>BMP180</a></li>
+                <li><a>SSD1306</a></li>
+              </ul>
+            </details>
+          </li>
+
+          <li>
+            <details open>
+              <summary>Uploading master code (advance use case of myosa) </summary>
+              <ul>
+                <li><a>MASTER CODE </a></li>
+                <li><a>Wifi</a></li>
+                <li><a>BLE</a></li>
+                <li><a>How to build your own I2C library</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</PageLayout>
